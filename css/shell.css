@@ -141,3 +141,10 @@ dialog .df{display:flex;justify-content:flex-end;gap:10px;padding:14px 22px;bord
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media print{.top,#toasts{display:none}}
+
+/* ---------- ojo de contraseña ---------- */
+.pw{position:relative;display:block}
+.pw input{padding-right:48px}
+.eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:38px;height:38px;display:grid;place-items:center;background:none;border:0;border-radius:8px;color:var(--mut);cursor:pointer}
+.eye:hover{color:var(--ink);background:var(--s3)}
+.eye.on{color:var(--cyan)}
