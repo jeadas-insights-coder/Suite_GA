@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JeaDas.Insights - Identificadores</title>
+<style>
+:root{
+  color-scheme:dark;
+  --jdi-primary:#3b82f6;--jdi-secondary:#8b5cf6;
+  --bg:#09090b;--surface:#121214;--surface-soft:#18181c;--surface-2:#1e1e24;
+  --ink:#f4f4f5;--muted:#a1a1aa;--line:#2a2a31;--accent:var(--jdi-primary);
+  --success:#22c55e;--danger:#ef4444;
+  --shadow:0 8px 26px rgba(0,0,0,.35);--shadow-hover:0 18px 40px rgba(0,0,0,.5);
+  --radius:14px;--ease:cubic-bezier(.2,.75,.25,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;color:var(--ink);background:var(--bg);
+  font:14.5px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit}
+button{touch-action:manipulation}
+header{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;
+  padding:16px clamp(14px,3vw,36px);background:linear-gradient(180deg,#121214,#0d0d10);border-bottom:1px solid var(--line)}
+header h1{font-size:clamp(17px,2vw,22px);margin:0;font-weight:750;letter-spacing:-.02em}
+header h1 span{color:var(--accent)}
+header p{margin:3px 0 0;color:var(--muted);font-size:12.5px}
+#sessionInfo{font-size:12px;color:var(--muted);text-align:right;overflow-wrap:anywhere}
+main{width:min(1240px,100%);margin:clamp(14px,2.5vw,28px) auto;padding:0 clamp(12px,2.5vw,28px)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(16px,2.2vw,24px);margin-bottom:16px;box-shadow:var(--shadow)}
+h1,h2,h3,p{overflow-wrap:anywhere}
+h2{font-size:clamp(17px,2vw,21px);line-height:1.3;margin:0 0 14px;letter-spacing:-.02em}
+h3{font-size:15px;margin:10px 0}
+p{margin-top:0}
+hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+label{display:block;font-size:12px;font-weight:700;letter-spacing:.03em;color:#c4c4cc;margin-bottom:6px}
+input,select,textarea{display:block;width:100%;min-width:0;min-height:44px;padding:10px 12px;color:var(--ink);
+  background:var(--surface-soft);border:1px solid #34343c;border-radius:9px;outline:none;transition:border-color .2s,box-shadow .2s}
+select option{background:#18181c;color:var(--ink)}
+textarea{min-height:100px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#6b6b75}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
+input:disabled,select:disabled{opacity:.55;cursor:not-allowed}
+input[type=date]{color-scheme:dark}
+.field{min-width:0;margin-bottom:13px}
+.grid,.grid3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.btn,.tab{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:42px;border:1px solid transparent;
+  border-radius:9px;padding:10px 15px;cursor:pointer;font-weight:650;font-size:13px;text-decoration:none;
+  transition:transform .2s var(--ease),background .2s,border-color .2s,box-shadow .2s,filter .2s}
+.btn{color:#fff;background:linear-gradient(120deg,var(--jdi-primary),var(--jdi-secondary));box-shadow:0 5px 14px color-mix(in srgb,var(--accent) 30%,transparent)}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn:active,.tab:active{transform:translateY(0) scale(.985)}
+.btn:focus-visible,.tab:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 45%,transparent);outline-offset:2px}
+.secondary,.tab{color:#d4d4d8;background:var(--surface-2);border-color:#34343c;box-shadow:none;background-image:none}
+.secondary:hover,.tab:hover{background:#27272f;border-color:#44444e;filter:none}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 16px;padding:4px 0}
+.tab{white-space:nowrap}
+.tab.active{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 5px 14px color-mix(in srgb,var(--accent) 35%,transparent)}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.row>*{min-width:0}
+.muted{font-size:13px;color:var(--muted)}
+.hidden{display:none!important}
+.msg{margin:12px 0 0;padding:11px 13px;border:1px solid #1e3a5f;border-radius:10px;background:#0f1e33;color:#9cc4f5;overflow-wrap:anywhere}
+.error{background:#2a1214;border-color:#5c1f24;color:#fca5a5}
+.success{background:#0f2a1a;border-color:#1d5a35;color:#86efac}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+td,th{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:11px 10px}
+th{position:sticky;top:0;background:#1a1a20;color:#b4b4be;font-size:11px;letter-spacing:.055em;text-transform:uppercase;white-space:nowrap}
+tbody tr:hover{background:#17171c}
+td{overflow-wrap:anywhere}
+.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11.5px;background:#1f2937;color:#cbd5e1;border:1px solid #334155}
+.pill.on{background:#0f2a1a;color:#86efac;border-color:#1d5a35}.pill.off{background:#2a1214;color:#fca5a5;border-color:#5c1f24}
+#view-dashboard .grid3>div{min-width:0;padding:17px;border-radius:12px;border:1px solid var(--line);background:linear-gradient(145deg,#17171c,#121214);transition:transform .24s var(--ease),border-color .24s}
+#view-dashboard .grid3>div h2{font-size:clamp(23px,3vw,32px);color:var(--accent);margin:7px 0 0;font-variant-numeric:tabular-nums}
+#view-dashboard .grid3>div h3{margin:7px 0 0}
+@media(hover:hover){#view-dashboard .grid3>div:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}}
+.preview{width:100%;max-width:800px;margin-inline:auto;padding:clamp(12px,3vw,28px);background:#fff;color:#111;border:1px dashed #a8bac8;border-radius:10px;overflow-wrap:anywhere}
+.print-page{min-height:240px;padding:18px;background:#fff;color:#111}
+.print-page h1,.print-page h2,.print-page h3{color:#111}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:18px 14px 28px}
+#notice:empty{display:none}
+::selection{background:color-mix(in srgb,var(--accent) 40%,transparent)}
+@media(max-width:760px){
+  .grid,.grid3{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-inline:contain;padding:4px 0 9px;scrollbar-width:thin}
+  .tab{flex:0 0 auto}
+  #view-history>div[style*="overflow"] table{min-width:760px}
+  #view-locations>div[style*="overflow"] table{min-width:520px}
+  #view-users>div[style*="overflow"] table{min-width:560px}
+}
+@media(max-width:520px){
+  #sessionInfo{text-align:left}
+  .grid,.grid3{grid-template-columns:minmax(0,1fr)}
+  .row{align-items:stretch}.row>.btn{width:100%}
+  .btn{min-height:44px}
+  td,th{padding:9px 8px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+@media print{
+  @page{margin:10mm}
+  body{background:#fff!important;color:#000!important;font-size:10pt}
+  header,.tabs,.no-print,footer,.btn,#notice{display:none!important}
+  main{width:100%;max-width:none;margin:0;padding:0}
+  .card{border:0!important;box-shadow:none!important;padding:0!important;margin:0!important;background:#fff!important}
+  .print-page{border:0!important;padding:0!important;min-height:0}
+  #printPreview{display:block!important;max-width:none!important;border:0!important;padding:0!important}
+}
+</style></head>
+<body>
+<header><div><h1>JeaDas.Insights <span>·</span> Identificadores</h1><p>Gestión de tomos, secciones y ubicaciones documentales</p></div><div id="sessionInfo"></div></header>
+<main>
+<section id="app">
+<div class="card row"><div><b id="welcome"></b><div id="institutionLabel" class="muted"></div></div></div>
+<nav id="tabs" class="tabs no-print"></nav><div id="notice"></div>
+<section id="view-dashboard" class="view card"><h2>Panel de trabajo</h2><p>Registre tomos y agregue secciones después, sin recrear documentos existentes.</p><div class="grid3"><div>Tomos visibles<h2 id="countTomes">0</h2></div><div>Ubicaciones<h2 id="countLocations">0</h2></div><div>Unidad<h3 id="unitLabel">—</h3></div></div></section>
+<section id="view-tomes" class="view card hidden"><h2>Registrar tomo</h2><div class="grid">
+<div class="field"><label for="tomeUnit">Unidad</label><select id="tomeUnit"></select></div><div class="field"><label for="tomeType">Tipo documental</label><select id="tomeType"></select></div>
+<div class="field"><label for="tomeYear">Gestión anual</label><input id="tomeYear" type="number"></div><div class="field"><label for="tomeTitle">Título / contenido</label><input id="tomeTitle"></div>
+<div class="field"><label for="rangeStart">Rango inicial</label><input id="rangeStart" placeholder="001"></div><div class="field"><label for="rangeEnd">Rango final</label><input id="rangeEnd" placeholder="050"></div>
+<div class="field"><label for="tomeLocation">Ubicación</label><select id="tomeLocation"></select></div><div class="field"><label for="qrType">QR opcional</label><select id="qrType"><option value="NONE">Sin QR</option><option value="URL">URL o identificador</option><option value="IMAGE_URL">URL de imagen QR</option></select><input id="qrValue" placeholder="URL/identificador" style="margin-top:6px"></div></div>
+<button class="btn" id="btnCreateTome">Crear tomo</button><p class="muted" style="margin-top:10px">Correlativo por unidad + tipo documental + gestión anual.</p></section>
+<section id="view-sections" class="view card hidden"><h2>Añadir sección y pestaña</h2><div class="field"><label for="sectionTome">Tomo</label><select id="sectionTome"></select></div>
+<div class="grid"><div class="field"><label for="sectionTitle">Título de sección</label><input id="sectionTitle"></div><div class="field"><label for="sectionSubtype">Tipo / subtipo</label><input id="sectionSubtype"></div>
+<div class="field"><label for="sectionStart">Fecha inicial</label><input id="sectionStart" type="date"></div><div class="field"><label for="sectionEnd">Fecha final</label><input id="sectionEnd" type="date"></div>
+<div class="field"><label for="sectionFolios">Folios</label><input id="sectionFolios" type="number"></div><div class="field"><label for="sectionTab">Código de pestaña (opcional)</label><input id="sectionTab" placeholder="T-001-S-001"></div></div>
+<div class="field"><label for="sectionObs">Observaciones</label><textarea id="sectionObs"></textarea></div><button class="btn" id="btnAddSection">Añadir sección</button><p class="muted" style="margin-top:10px">Cada tomo inicia S-001, S-002…; la pestaña por defecto combina código de tomo y sección.</p></section>
+<section id="view-history" class="view card hidden"><div class="row"><h2>Historial de tomos</h2><button class="btn secondary" id="btnReload">Actualizar</button></div><div style="overflow:auto"><table><thead><tr><th>Tomo</th><th>Gestión</th><th>Unidad</th><th>Tipo</th><th>Contenido/rango</th><th>Ubicación</th><th>Secciones</th><th>QR</th></tr></thead><tbody id="tomeRows"></tbody></table></div></section>
+<section id="view-locations" class="view card hidden"><h2>Catálogo de ubicaciones</h2><div class="grid"><div class="field"><label for="locCode">Código</label><input id="locCode" placeholder="E-001"></div><div class="field"><label for="locDeposit">Depósito</label><input id="locDeposit"></div><div class="field"><label for="locShelf">Estante</label><input id="locShelf"></div><div class="field"><label for="locBay">Balda</label><input id="locBay"></div><div class="field"><label for="locPosition">Posición</label><input id="locPosition"></div></div><button class="btn" id="btnSaveLocation">Guardar ubicación</button><div style="overflow:auto;margin-top:14px"><table><thead><tr><th>Código</th><th>Depósito</th><th>Estante</th><th>Balda</th><th>Posición</th><th>Estado</th></tr></thead><tbody id="locationRows"></tbody></table></div></section>
+<section id="view-admin" class="view card hidden"><h2>Administración</h2>
+<div class="msg">La institución, el logotipo y los datos de contacto se gestionan en la Suite (Configuración de la empresa). Aquí solo se administran los catálogos propios de este módulo.</div>
+<div class="grid" style="margin-top:14px"><div class="field"><label for="defYear">Gestión por defecto</label><input id="defYear" type="number"></div></div><button class="btn secondary" id="btnSaveYear">Guardar gestión</button>
+<hr><h3>Crear unidad</h3><div class="grid"><div class="field"><label for="unitCode">Código</label><input id="unitCode"></div><div class="field"><label for="unitName">Nombre</label><input id="unitName"></div></div><button class="btn secondary" id="btnSaveUnit">Guardar unidad</button>
+<hr><h3>Crear tipo documental</h3><div class="field"><label for="typeName">Nombre</label><input id="typeName"></div><button class="btn secondary" id="btnSaveType">Guardar tipo</button></section>
+<section id="view-users" class="view card hidden"><h2>Usuarios del módulo</h2><p class="muted">Las personas se crean y habilitan en la Suite. Aquí se asigna a cada una su rol y su unidad dentro de Identificadores.</p><div style="overflow:auto"><table><thead><tr><th>Usuario</th><th>Estado</th><th>Rol</th><th>Unidad</th><th></th></tr></thead><tbody id="userRows"></tbody></table></div></section>
+<section id="view-roles" class="view card hidden"><h2>Roles y permisos</h2><div class="grid"><div class="field"><label for="roleSel">Rol</label><select id="roleSel"></select></div><div class="field"><label for="roleName">Nombre</label><input id="roleName"></div></div><div id="rolePerms" class="grid"></div><div class="row" style="margin-top:12px"><button class="btn" id="btnSaveRole">Guardar rol</button><button class="btn secondary" id="btnNewRole">Nuevo rol</button></div></section>
+<section id="view-audit" class="view card hidden"><div class="row"><h2>Auditoría</h2><button class="btn secondary" id="btnAudit">Actualizar</button></div><div style="overflow:auto"><table><thead><tr><th>Fecha</th><th>Usuario</th><th>Acción</th><th>Entidad</th></tr></thead><tbody id="auditRows"></tbody></table></div></section>
+<section id="view-print" class="view card hidden"><h2>Vista previa imprimible</h2><p class="muted">Vista preliminar básica; las plantillas físicas finales requieren calibración con las hojas y medidas reales.</p><div class="field"><label for="printTome">Tomo</label><select id="printTome"></select></div><button class="btn" id="btnPreview">Vista previa</button> <button class="btn secondary" id="btnPrint">Imprimir / PDF</button><div id="printPreview" class="preview" style="margin-top:15px"></div></section>
+</section><footer>JeaDas.Insights · Identificadores</footer></main>
+<script src="../../assets/suite-bridge.js"></script>
+<script>
+const st={user:null,data:null,permissions:[],roles:[],permCatalog:{}};
+const $=id=>document.getElementById(id);
+const nav=[['dashboard','Panel','dashboard.view'],['tomes','Nuevo tomo','tomes.create'],['sections','Secciones','sections.create'],['history','Historial','tomes.view'],['locations','Ubicaciones','locations.view'],['admin','Administración','institution.manage'],['users','Usuarios','users.manage'],['roles','Roles','roles.manage'],['audit','Auditoría','audit.view'],['print','Impresión','tomes.view']];
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function message(text,error=false){$('notice').innerHTML=`<div class="msg ${error?'error':'success'}" role="status">${esc(text)}</div>`}
+/* Transporte: la Suite valida la sesión y entrega la solicitud al backend del módulo (sin token en el cuerpo). */
+async function api(action,data={}){const j=await JDI.api({action,...data});if(!j||!j.ok)throw Error((j&&j.error)||'Error del servidor');return j.data}
+async function enterApp(){await loadData();renderNav();show('dashboard')}
+async function loadData(){try{st.data=await api('bootstrap');st.user=st.data.user;st.permissions=st.data.permissions||[];st.permCatalog=st.data.permCatalog||{};const d=st.data;
+ $('institutionLabel').textContent=d.institution.institutionName||'';$('welcome').textContent='Usuario: '+st.user.username;$('sessionInfo').textContent=st.user.username+(st.user.isAdmin?' · Administrador':'');
+ $('countTomes').textContent=d.tomes.length;$('countLocations').textContent=d.locations.length;
+ const u=d.units.find(x=>x.unitId===st.user.unitId);$('unitLabel').textContent=u?u.name:(st.user.isAdmin?'Todas las unidades':'Sin unidad');
+ fill('tomeUnit',d.units,'unitId','name','Seleccione unidad');if(st.user.unitId&&!st.user.isAdmin){$('tomeUnit').value=st.user.unitId;$('tomeUnit').disabled=true}else $('tomeUnit').disabled=false;
+ fill('tomeType',d.types,'typeId','name','Seleccione tipo');fill('tomeLocation',d.locations.filter(x=>!x.occupiedByTomeId),'locationId','code','Sin asignar');
+ fill('sectionTome',d.tomes,'tomeId',t=>`${t.tomeCode} · ${t.typeName} · ${t.year}`,'Seleccione tomo');fill('printTome',d.tomes,'tomeId',t=>`${t.tomeCode} · ${t.title||t.typeName}`,'Seleccione tomo');
+ $('tomeYear').value=d.institution.defaultYear||new Date().getFullYear();$('defYear').value=d.institution.defaultYear||new Date().getFullYear();
+ renderTomes();renderLocations()}catch(e){message(e.message,true)}}
+function fill(id,items,v,l,first){$(id).innerHTML=`<option value="">${esc(first)}</option>`+(items||[]).map(x=>`<option value="${esc(x[v])}">${esc(typeof l==='function'?l(x):x[l])}</option>`).join('')}
+function renderNav(){$('tabs').innerHTML=nav.filter(n=>st.user.isAdmin||st.permissions.includes(n[2])).map(n=>`<button class="tab" data-v="${n[0]}">${n[1]}</button>`).join('');
+ document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>show(b.dataset.v)))}
+async function show(id){document.querySelectorAll('.view').forEach(x=>x.classList.add('hidden'));$('view-'+id)?.classList.remove('hidden');document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.v===id));
+ if(id==='users')await loadUsers();if(id==='roles')await loadRoles();if(id==='audit')await loadAudit()}
+async function createTome(){try{const r=await api('createTome',{data:{unitId:$('tomeUnit').value,typeId:$('tomeType').value,year:$('tomeYear').value,title:$('tomeTitle').value,rangeStart:$('rangeStart').value,rangeEnd:$('rangeEnd').value,locationId:$('tomeLocation').value,qrType:$('qrType').value,qrValue:$('qrValue').value}});message(`Tomo creado: ${r.tomeCode}, ${r.typeName}, gestión ${r.year}.`);await loadData();show('history')}catch(e){message(e.message,true)}}
+async function addSection(){try{const r=await api('addSection',{data:{tomeId:$('sectionTome').value,title:$('sectionTitle').value,subtype:$('sectionSubtype').value,dateStart:$('sectionStart').value,dateEnd:$('sectionEnd').value,folios:$('sectionFolios').value,observations:$('sectionObs').value,tabCode:$('sectionTab').value}});message(`Nueva sección ${r.sectionCode}; pestaña ${r.tabCode}. No se regeneró el tomo.`);['sectionTitle','sectionSubtype','sectionStart','sectionEnd','sectionFolios','sectionObs','sectionTab'].forEach(x=>$(x).value='');await loadData()}catch(e){message(e.message,true)}}
+function renderTomes(){$('tomeRows').innerHTML=st.data.tomes.map(t=>`<tr><td>${esc(t.tomeCode)}</td><td>${esc(t.year)}</td><td>${esc(t.unitName)}</td><td>${esc(t.typeName)}</td><td>${esc(t.title)}<br>${esc(t.rangeStart)}–${esc(t.rangeEnd)}</td><td>${esc(t.locationCode||'Sin asignar')}</td><td>${(t.sections||[]).map(s=>esc(s.sectionCode)).join(', ')||'—'}</td><td>${esc(t.qrType==='NONE'?'No':t.qrValue||t.qrType)}</td></tr>`).join('')}
+function renderLocations(){$('locationRows').innerHTML=st.data.locations.map(x=>`<tr><td>${esc(x.code)}</td><td>${esc(x.deposit)}</td><td>${esc(x.shelf)}</td><td>${esc(x.bay)}</td><td>${esc(x.position)}</td><td>${x.occupiedByTomeId?'Ocupada':'Disponible'}</td></tr>`).join('')}
+async function saveLocation(){try{await api('saveLocation',{data:{code:$('locCode').value,deposit:$('locDeposit').value,shelf:$('locShelf').value,bay:$('locBay').value,position:$('locPosition').value}});message('Ubicación guardada.');await loadData()}catch(e){message(e.message,true)}}
+async function saveYear(){try{await api('saveInstitution',{data:{defaultYear:$('defYear').value}});message('Gestión por defecto guardada.');await loadData()}catch(e){message(e.message,true)}}
+async function saveUnit(){try{await api('saveUnit',{data:{code:$('unitCode').value,name:$('unitName').value,active:true}});message('Unidad guardada.');$('unitCode').value=$('unitName').value='';await loadData()}catch(e){message(e.message,true)}}
+async function saveType(){try{await api('saveDocumentType',{data:{name:$('typeName').value,active:true}});message('Tipo documental guardado.');$('typeName').value='';await loadData()}catch(e){message(e.message,true)}}
+/* Usuarios (perfil dentro del módulo) */
+async function loadUsers(){try{const [us,roles]=await Promise.all([api('listUsers'),api('listRoles')]);st.roles=roles;const units=st.data.units;
+ $('userRows').innerHTML=us.map(u=>`<tr data-u="${esc(u.userId)}"><td>${esc(u.username)}</td><td><span class="pill ${String(u.active)==='false'?'off':'on'}">${String(u.active)==='false'?'Inactivo':'Activo'}</span></td>
+ <td><select class="uRole" aria-label="Rol de ${esc(u.username)}">${roles.filter(r=>r.active).map(r=>`<option value="${esc(r.roleId)}" ${r.roleId===u.roleId?'selected':''}>${esc(r.name)}</option>`).join('')}</select></td>
+ <td><select class="uUnit" aria-label="Unidad de ${esc(u.username)}"><option value="">Sin unidad</option>${units.map(x=>`<option value="${esc(x.unitId)}" ${x.unitId===u.unitId?'selected':''}>${esc(x.name)}</option>`).join('')}</select></td>
+ <td><button class="btn secondary uSave">Guardar</button></td></tr>`).join('');
+ document.querySelectorAll('.uSave').forEach(b=>b.addEventListener('click',async()=>{const tr=b.closest('tr');try{await api('saveUser',{data:{userId:tr.dataset.u,roleId:tr.querySelector('.uRole').value,unitId:tr.querySelector('.uUnit').value}});message('Perfil guardado.')}catch(e){message(e.message,true)}}))}catch(e){message(e.message,true)}}
+/* Roles */
+async function loadRoles(){try{st.roles=await api('listRoles');$('roleSel').innerHTML=st.roles.map(r=>`<option value="${esc(r.roleId)}">${esc(r.name)}${r.active?'':' (inactivo)'}</option>`).join('');pickRole()}catch(e){message(e.message,true)}}
+function pickRole(){const r=st.roles.find(x=>x.roleId===$('roleSel').value);$('roleName').value=r?r.name:'';const locked=r&&r.roleId==='ROLE_ADMIN';$('rolePerms').innerHTML=Object.keys(st.permCatalog).map(p=>`<label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" style="width:auto;min-height:0" value="${esc(p)}" ${r&&r.permissions.includes(p)?'checked':''} ${locked?'disabled':''}> ${esc(st.permCatalog[p])}</label>`).join('');$('btnSaveRole').disabled=!!locked}
+async function saveRole(){try{const sel=$('roleSel').value;const perms=[...document.querySelectorAll('#rolePerms input:checked')].map(i=>i.value);await api('saveRole',{data:{roleId:sel||undefined,name:$('roleName').value,permissions:perms}});message('Rol guardado.');await loadRoles()}catch(e){message(e.message,true)}}
+function newRole(){$('roleSel').value='';$('roleName').value='';document.querySelectorAll('#rolePerms input').forEach(i=>{i.checked=false;i.disabled=false});$('btnSaveRole').disabled=false}
+async function loadAudit(){try{const a=await api('audit');$('auditRows').innerHTML=a.map(x=>`<tr><td>${esc(String(x.timestamp).replace('T',' ').slice(0,19))}</td><td>${esc(x.username)}</td><td>${esc(x.action)}</td><td>${esc(x.entity)}</td></tr>`).join('')}catch(e){message(e.message,true)}}
+function previewTome(){const t=st.data.tomes.find(x=>x.tomeId===$('printTome').value);if(!t){message('Seleccione un tomo.',true);return}const i=st.data.institution,logo=(JDI.empresa&&JDI.empresa.logo_data)||'';$('printPreview').innerHTML=`<div class="print-page"><center>${logo?`<img alt="Logotipo" src="${esc(logo)}" style="max-height:65px;max-width:150px">`:''}<h2>${esc(i.institutionName||'INSTITUCIÓN')}</h2>${esc(t.unitName)}</center><hr><center><h2>${esc(t.typeName)}</h2><h1>${esc(t.tomeCode)} / ${esc(t.sequence)}</h1></center><p><b>Gestión:</b> ${esc(t.year)}</p><p><b>Contenido:</b> ${esc(t.title)}</p><p><b>Rango:</b> ${esc(t.rangeStart)} – ${esc(t.rangeEnd)}</p><p><b>Ubicación:</b> ${esc(t.locationCode||'Pendiente')}</p>${t.qrValue?`<p>QR/identificador: ${esc(t.qrValue)}</p>`:''}<h3>Secciones</h3>${(t.sections||[]).map(s=>`<p>${esc(s.sectionCode)} · ${esc(s.title)} · ${esc(s.tabCode)}</p>`).join('')||'Sin secciones.'}</div>`}
+$('btnCreateTome').onclick=createTome;$('btnAddSection').onclick=addSection;$('btnReload').onclick=loadData;$('btnSaveLocation').onclick=saveLocation;
+$('btnSaveYear').onclick=saveYear;$('btnSaveUnit').onclick=saveUnit;$('btnSaveType').onclick=saveType;$('btnPreview').onclick=previewTome;$('btnPrint').onclick=()=>window.print();
+$('roleSel').onchange=pickRole;$('btnSaveRole').onclick=saveRole;$('btnNewRole').onclick=newRole;$('btnAudit').onclick=loadAudit;
+JDI.ready.then(()=>{document.title='JeaDas.Insights - Identificadores';JDI.onBrand(()=>loadData());return enterApp()});
+</script></body></html>

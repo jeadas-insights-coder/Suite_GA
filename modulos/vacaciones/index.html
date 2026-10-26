@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JeaDas.Insights - Vacaciones</title>
+<link rel="stylesheet" href="estilos.css">
+<script>
+  try { var t = localStorage.getItem('jdi.vacaciones.tema'); document.documentElement.setAttribute('data-theme', t || 'dark'); } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+</script>
+</head>
+<body>
+<script src="../../assets/suite-bridge.js"></script>
+<div id="raiz"></div>
+<div id="toasts" role="status" aria-live="polite"></div>
+<div id="tip" class="tip" hidden></div>
+<script src="js/core.js"></script>
+<script src="js/graficos.js"></script>
+<script src="js/vista-inicio.js"></script>
+<script src="js/vista-calendarios.js"></script>
+<script src="js/vista-solicitudes.js"></script>
+<script src="js/vista-personal.js"></script>
+<script src="js/vista-analisis.js"></script>
+<script src="js/vista-config.js"></script>
+<script src="js/vista-permisos.js"></script>
+<script>JDI.ready.then(function () { App.iniciar(); JDI.onBrand(function () { App.recargar(); }); });</script>
+</body>
+</html>
