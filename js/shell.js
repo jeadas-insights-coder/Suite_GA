@@ -129,12 +129,27 @@
     document.title = 'JeaDas.Insights'; pantallaLogin('');
   }
 
+  /* Botón «ojo»: muestra la contraseña unos segundos y la vuelve a ocultar sola. */
+  var OJO = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+  function verClaves(raiz) {
+    raiz.querySelectorAll('input[type=password]').forEach(function (inp) {
+      var w = document.createElement('span'); w.className = 'pw'; inp.parentNode.insertBefore(w, inp); w.appendChild(inp);
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'eye'; b.innerHTML = OJO;
+      b.setAttribute('aria-label', 'Mostrar la contraseña unos segundos'); b.title = 'Mostrar unos segundos'; w.appendChild(b);
+      var t = null;
+      function ocultar() { clearTimeout(t); inp.type = 'password'; b.setAttribute('aria-pressed', 'false'); b.classList.remove('on'); }
+      b.onclick = function () { if (inp.type === 'text') return ocultar(); inp.type = 'text'; b.setAttribute('aria-pressed', 'true'); b.classList.add('on'); t = setTimeout(ocultar, 4000); };
+      inp.addEventListener('blur', function () { setTimeout(function () { if (document.activeElement !== b) ocultar(); }, 150); });
+    });
+  }
+
   function pantallaLogin(aviso) {
     $('#root').innerHTML = '<section id="login"><form class="logincard" id="flog" autocomplete="on"><h1 class="brand">JeaDas<i>.Insights</i></h1><p class="sub">Ingrese para acceder a sus módulos.</p>' +
       (aviso ? '<div class="err" role="alert">' + esc(aviso) + '</div>' : '') +
       '<label class="f"><span>Usuario</span><input type="text" name="usuario" autocomplete="username" autocapitalize="none" spellcheck="false" required></label>' +
       '<label class="f"><span>Contraseña</span><input type="password" name="clave" autocomplete="current-password" required></label>' +
       '<div id="lerr"></div><button class="btn pri" style="width:100%;margin-top:6px" type="submit">Ingresar</button></form></section>';
+    verClaves($('#flog'));
     $('[name=usuario]').focus();
     $('#flog').onsubmit = function (ev) {
       ev.preventDefault();
@@ -153,6 +168,7 @@
       '<label class="f"><span>Contraseña nueva</span><input type="password" name="nueva" autocomplete="new-password" required><small class="hint">Mínimo 10 caracteres, con letras y números.</small></label>' +
       '<label class="f"><span>Repita la contraseña nueva</span><input type="password" name="rep" autocomplete="new-password" required></label>' +
       '<div id="cerr"></div><div class="row"><button class="btn pri" type="submit">Guardar y continuar</button><button class="btn" type="button" id="csal">' + (forzada ? 'Salir' : 'Cancelar') + '</button></div></form></section>';
+    verClaves($('#fclave'));
     $('[name=actual]').focus();
     $('#csal').onclick = function () { forzada ? salir() : render(); };
     $('#fclave').onsubmit = function (ev) {
